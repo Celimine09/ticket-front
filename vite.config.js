@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
-import ViteNext from 'vite-plugin-next';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [ViteNext()]
-});
+  plugins: [react()],
+})

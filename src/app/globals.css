@@ -43,44 +43,156 @@
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
 
-  /* Custom Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  @keyframes slideIn {
-    from { transform: translateX(-20px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-  }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
 
-  .animate-slide-in {
-    animation: slideIn 0.3s ease-out forwards;
-  }
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
 
+.animate-pulse-soft {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Reusable Component Classes */
+@layer components {
+  /* Card Styles */
   .glass-card {
     @apply bg-secondary/70 backdrop-blur-md border border-white/10 rounded-xl shadow-lg;
-  }
-  
-  .kanban-column {
-    @apply bg-secondary/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 min-h-[50vh] w-full;
   }
   
   .ticket-card {
     @apply bg-card backdrop-blur-sm border border-border/50 rounded-lg p-4 mb-3 transition-all duration-300 hover:shadow-md hover:-translate-y-1;
   }
-
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  
+  /* Status Badges */
+  .status-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium border;
   }
+  
+  .status-badge-pending {
+    @apply bg-yellow-500/20 text-yellow-400 border-yellow-500/50;
+  }
+  
+  .status-badge-accepted {
+    @apply bg-blue-500/20 text-blue-400 border-blue-500/50;
+  }
+  
+  .status-badge-resolved {
+    @apply bg-green-500/20 text-green-400 border-green-500/50;
+  }
+  
+  .status-badge-rejected {
+    @apply bg-red-500/20 text-red-400 border-red-500/50;
+  }
+  
+  /* Button Styles */
+  .btn {
+    @apply px-4 py-2 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+  }
+  
+  .btn-secondary {
+    @apply border border-border/50 bg-secondary/50 hover:bg-secondary/70;
+  }
+
+  /* Form Controls */
+  .form-input {
+    @apply bg-secondary/40 border-border/50 w-full p-2 rounded-md border;
+  }
+  
+  .form-textarea {
+    @apply bg-secondary/40 border-border/50 w-full p-2 rounded-md border min-h-32;
+  }
+  
+  .form-label {
+    @apply block font-medium mb-1;
+  }
+  
+  .form-group {
+    @apply space-y-2 mb-4;
+  }
+  
+  /* Kanban Styles */
+  .kanban-column {
+    @apply bg-secondary/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 min-h-[50vh] w-full;
+  }
+  
+  /* Drag and drop state styles */
+  .dragging {
+    @apply opacity-50 scale-95;
+  }
+  
+  .drag-over {
+    @apply ring-2 ring-primary ring-opacity-50;
+  }
+  
+  /* Error & Alert Styles */
+  .alert {
+    @apply px-4 py-3 rounded-md mb-4;
+  }
+  
+  .alert-error {
+    @apply bg-red-500/20 border border-red-500/50 text-red-700;
+  }
+  
+  .alert-success {
+    @apply bg-green-500/20 border border-green-500/50 text-green-400;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-500/20 border border-yellow-500/50 text-yellow-400;
+  }
+}
+
+/* Typography Utilities */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+}
+
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+}
+
+/* Responsive helpers */
+.responsive-container {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }

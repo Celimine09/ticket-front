@@ -1,11 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { TicketIcon, PlusCircle, Inbox, Settings } from 'lucide-react';
+import { TicketIcon, PlusCircle, Inbox, Settings, BarChart } from 'lucide-react';
 
 const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,6 +27,9 @@ const Layout = ({ children }) => {
             </Link>
             <Link href="/kanban" className="text-foreground/80 hover:text-primary transition-colors">
               Kanban Board
+            </Link>
+            <Link href="/analytics" className="text-foreground/80 hover:text-primary transition-colors">
+              Analytics
             </Link>
             <Link href="/tickets/new" className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md flex items-center gap-2">
               <PlusCircle size={16} />
@@ -73,6 +76,14 @@ const Layout = ({ children }) => {
               >
                 <Settings size={18} />
                 <span>Kanban Board</span>
+              </Link>
+              <Link
+                href="/analytics"
+                className="flex items-center gap-2 py-2 hover:bg-secondary/50 px-3 rounded-md"
+                onClick={() => setIsOpen(false)}
+              >
+                <BarChart size={18} />
+                <span>Analytics</span>
               </Link>
               <Link
                 href="/tickets/new"
