@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ticketing System - Full Stack Application
 
-## Getting Started
+This repository contains a full-stack helpdesk support ticket management application with a RESTful API backend and a SPA-styled frontend.
+Project Overview
 
-First, run the development server:
+## The application allows users to:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Create new support tickets with title, description, and contact information
+- View and update ticket information and status (pending, accepted, resolved, rejected)
+- Filter and sort tickets by various parameters
+- Visualize tickets in a Kanban board view
+- View analytics and reports on ticket data
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Screenshot](/ex.png)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: Next.js (React)
+- **Styling**: Tailwind CSS
+- **State Management**: React Hooks
+- **UI Components**: Custom components with Tailwind
+- **Animations**: Custom CSS animations
 
-## Learn More
+## API Endpoints Tickets
 
-To learn more about Next.js, take a look at the following resources:
+- **GET /api/tickets** - Get all tickets (with optional filtering)
+- **GET /api/tickets/:id** - Get a specific ticket by ID
+- **POST /api/tickets** - Create a new ticket
+- **PUT /api/tickets/:id** - Update a ticket
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Ticket Management
 
-## Deploy on Vercel
+- Create new tickets with detailed information
+- View and filter tickets based on various parameters
+- Update ticket status and information
+- Track ticket history
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Kanban Board
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Visualize tickets in a Kanban-style board
+- Drag and drop tickets to change status
+- Quick view of ticket distribution by status
+
+## Analytics
+
+- View statistical data on tickets
+- Track resolution rates and response times
+- Visualize ticket trends over time
+
+## Testing
+
+The backend includes comprehensive test coverage using Jest:
+
+- Unit tests for models, controllers, and routes
+- Integration tests for API endpoints
+- Mock database tests using MongoDB Memory Server
+  ![Screenshot](/test.png)
