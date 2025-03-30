@@ -2,7 +2,7 @@
  * API service for backend communication
  */
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:5003/api';
 
 // Generic API call function to reduce code duplication
 const apiCall = async (endpoint, method = 'GET', data = null) => {

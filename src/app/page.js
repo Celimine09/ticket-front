@@ -7,7 +7,7 @@ import TicketList from './components/TicketList';
 import { Clock, AlertCircle, Check, XCircle } from 'lucide-react';
 
 // API service
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:5003/api';
 
 export default function Dashboard() {
   const router = useRouter();
