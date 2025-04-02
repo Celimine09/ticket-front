@@ -5,9 +5,7 @@ import { useRouter } from 'next/navigation';
 import Layout from './components/Layout';
 import TicketList from './components/TicketList';
 import { Clock, AlertCircle, Check, XCircle } from 'lucide-react';
-
-// API service
-const API_URL = 'http://localhost:5003/api';
+import ticketService from './api/api';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -26,16 +24,13 @@ export default function Dashboard() {
     fetchTickets();
   }, []);
 
+  // Updated to use ticketService instead of direct fetch
   const fetchTickets = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_URL}/tickets`);
       
-      if (!response.ok) {
-        throw new Error('Failed to fetch tickets');
-      }
-      
-      const data = await response.json();
+      // Use ticketService.getAllTickets() instead of direct fetch
+      const data = await ticketService.getAllTickets();
       setTickets(data);
       
       // Calculate status counts
@@ -51,7 +46,7 @@ export default function Dashboard() {
       setLoading(false);
     } catch (error) {
       console.error('Error fetching tickets:', error);
-      setError(error.message);
+      setError(error.message || 'Failed to fetch tickets');
       setLoading(false);
     }
   };
