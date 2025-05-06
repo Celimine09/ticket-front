@@ -11,7 +11,7 @@ Project Overview
 - Visualize tickets in a Kanban board view
 - View analytics and reports on ticket data
 
-![Screenshot](/ex.png)
+![Screenshot](/test.png)
 
 ## Frontend
 
